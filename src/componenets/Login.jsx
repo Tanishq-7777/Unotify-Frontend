@@ -11,7 +11,6 @@ export default function Login() {
   const [error, setError] = useState(false);
   const setData = useProfile((state) => state.setData);
 
-  // Auto-dismiss error toast after 2 seconds
   useEffect(() => {
     if (error) {
       const timer = setTimeout(() => {
@@ -68,10 +67,8 @@ export default function Login() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-      {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
-      {/* Error Toast Notification */}
       {error && (
         <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 animate-slide-down">
           <div className="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl shadow-2xl border border-red-400/30 backdrop-blur-md">
@@ -99,15 +96,13 @@ export default function Login() {
           </div>
         </div>
       )}
-      {/* Animated gradient orbs */}
+
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 -left-40 w-96 h-96 bg-gradient-to-r from-[#FF6B35] to-orange-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
         <div className="absolute -bottom-20 -right-40 w-96 h-96 bg-gradient-to-r from-[#00d4ff] to-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float animation-delay-2000"></div>
       </div>
 
-      {/* Login Container */}
       <div className="relative z-10 w-full max-w-md mx-4 animate-fade-in-up">
-        {/* Logo */}
         <div className="text-center mb-8">
           <h1 className="font-['Archivo_Black'] text-5xl text-white mb-2 tracking-tight">
             UNO
@@ -122,11 +117,9 @@ export default function Login() {
           </p>
         </div>
 
-        {/* Login Card */}
         <div className="relative bg-white/[0.05] backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-transparent rounded-bl-full blur-2xl"></div>
 
-          {/* Toggle Tabs */}
           <div className="flex gap-2 mb-8 p-1 bg-white/[0.03] rounded-2xl border border-white/10">
             <button
               onClick={() => setIsLogin(true)}
@@ -150,7 +143,6 @@ export default function Login() {
             </button>
           </div>
 
-          {/* Form */}
           <form className="space-y-5">
             {!isLogin && (
               <div className="animate-fade-in">
@@ -193,7 +185,6 @@ export default function Login() {
               />
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               onClick={handleLoginSignUp}
@@ -207,7 +198,6 @@ export default function Login() {
             </button>
           </form>
 
-          {/* Divider */}
           <div className="relative my-8 ">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-white/10"></div>
@@ -219,7 +209,6 @@ export default function Login() {
             </div>
           </div>
 
-          {/* Footer */}
           <p className="text-center text-sm text-gray-400 mt-8">
             {isLogin ? "Don't have an account? " : "Already have an account? "}
             <button
@@ -231,7 +220,6 @@ export default function Login() {
           </p>
         </div>
 
-        {/* Terms */}
         <p className="text-center text-xs text-gray-500 mt-6">
           By continuing, you agree to our{" "}
           <a

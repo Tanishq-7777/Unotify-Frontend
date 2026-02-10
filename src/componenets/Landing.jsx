@@ -55,7 +55,6 @@ export default function Landing() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-      {/* Cursor spotlight effect */}
       <div
         className="pointer-events-none fixed inset-0 z-30 transition duration-300"
         style={{
@@ -63,17 +62,14 @@ export default function Landing() {
         }}
       />
 
-      {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
-      {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-r from-[#FF6B35] to-orange-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
         <div className="absolute top-1/4 -right-40 w-96 h-96 bg-gradient-to-r from-[#00d4ff] to-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float animation-delay-2000"></div>
         <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float animation-delay-4000"></div>
       </div>
 
-      {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <div
@@ -89,15 +85,12 @@ export default function Landing() {
         ))}
       </div>
 
-      {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center pt-20">
-        {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8 animate-fade-in-down hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-default">
           <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           <span className="text-sm text-gray-300 font-medium">Now Live</span>
         </div>
 
-        {/* Main heading with enhanced styling */}
         <div className="mb-6 animate-fade-in-down animation-delay-200">
           <h1 className="font-['Archivo_Black'] text-7xl md:text-9xl text-white mb-6 tracking-tight relative inline-block cursor-default hover:scale-105 transition-transform duration-500">
             UNO
@@ -111,7 +104,6 @@ export default function Landing() {
           </p>
         </div>
 
-        {/* Typewriter showcase with enhanced design */}
         <div className="mt-20 mb-16 animate-fade-in-up animation-delay-400">
           <div className="inline-flex items-center justify-center gap-4 mb-8 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
@@ -135,9 +127,7 @@ export default function Landing() {
           </p>
         </div>
 
-        {/* Enhanced feature cards */}
         <div className="grid md:grid-cols-2 gap-6 mt-24 max-w-5xl mx-auto animate-fade-in-up animation-delay-600">
-          {/* YtNote Card */}
           <a href="#ytnote" className="group relative overflow-hidden block">
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl"></div>
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">

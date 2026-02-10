@@ -10,7 +10,6 @@ export default function Otp() {
   const inputRefs = useRef([]);
   const setData = useProfile((state) => state.setData);
 
-  // Auto-dismiss error toast after 2 seconds
   useEffect(() => {
     if (error) {
       const timer = setTimeout(() => {
@@ -61,14 +60,12 @@ export default function Otp() {
     newOtp[index] = value;
     setOtp(newOtp);
 
-    // Move to next input
     if (value && index < 5) {
       inputRefs.current[index + 1]?.focus();
     }
   };
 
   const handleKeyDown = (index, e) => {
-    // Move to previous input on backspace
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     }
@@ -86,7 +83,6 @@ export default function Otp() {
     }
     setOtp(newOtp);
 
-    // Focus on next empty input or last input
     const nextIndex = Math.min(pastedData.length, 5);
     inputRefs.current[nextIndex]?.focus();
   };
@@ -104,7 +100,7 @@ export default function Otp() {
     const otpCode = otp.join("");
     if (otpCode.length === 6) {
       console.log("Verifying OTP:", otpCode);
-      // Add your verification logic here
+
       verifyOtp(otpCode);
     }
   };
@@ -113,10 +109,8 @@ export default function Otp() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-      {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
-      {/* Error Toast Notification */}
       {error && (
         <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 animate-slide-down">
           <div className="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl shadow-2xl border border-red-400/30 backdrop-blur-md">
@@ -143,15 +137,12 @@ export default function Otp() {
         </div>
       )}
 
-      {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 -left-40 w-96 h-96 bg-gradient-to-r from-[#FF6B35] to-orange-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
         <div className="absolute -bottom-20 -right-40 w-96 h-96 bg-gradient-to-r from-[#00d4ff] to-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float animation-delay-2000"></div>
       </div>
 
-      {/* OTP Container */}
       <div className="relative z-10 w-full max-w-md mx-4 animate-fade-in-up">
-        {/* Logo */}
         <div className="mb-6 text-center animate-fade-in-down animation-delay-200">
           <div className="font-['Archivo_Black'] text-7xl md:text-6xl  text-white mb-6 tracking-tight relative inline-block">
             UNO
@@ -162,11 +153,9 @@ export default function Otp() {
           </div>
         </div>
 
-        {/* OTP Card */}
         <div className="relative bg-white/[0.05] backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-transparent rounded-bl-full blur-2xl"></div>
 
-          {/* Icon */}
           <div className="flex justify-center mb-6">
             <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B35] to-orange-500 rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/50 animate-pulse-slow">
               <svg
@@ -185,7 +174,6 @@ export default function Otp() {
             </div>
           </div>
 
-          {/* Title */}
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-white mb-2">
               Verify Your Email
@@ -197,7 +185,6 @@ export default function Otp() {
             </p>
           </div>
 
-          {/* OTP Input */}
           <div className="flex justify-center gap-3 mb-8">
             {otp.map((digit, index) => (
               <input
@@ -215,7 +202,6 @@ export default function Otp() {
             ))}
           </div>
 
-          {/* Verify Button */}
           <button
             onClick={handleVerify}
             disabled={!isComplete}
@@ -228,7 +214,6 @@ export default function Otp() {
             Verify & Continue
           </button>
 
-          {/* Back to Login */}
           <div className="text-center mt-6">
             <a
               href="#"
@@ -237,7 +222,6 @@ export default function Otp() {
           </div>
         </div>
 
-        {/* Help Text */}
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-500">
             Didn't receive the code?{" "}
@@ -250,7 +234,6 @@ export default function Otp() {
           </p>
         </div>
 
-        {/* Security Badge */}
         <div className="mt-8 flex items-center justify-center gap-2 text-gray-500 text-xs">
           <svg
             className="w-4 h-4 text-green-500"

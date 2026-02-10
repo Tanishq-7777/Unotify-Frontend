@@ -3,16 +3,13 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav className="top-0 left-0 right-0 bg-[#1a1a2e] h-20 shadow-lg z-50">
-      {/* Animated gradient bottom border */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF6B35] via-[#00d4ff] to-[#FF6B35] bg-[length:200%_100%] animate-gradient"></div>
 
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-        {/* Logo */}
         <div className="font-['Archivo_Black'] text-3xl text-white tracking-wide">
           UNO<span className="text-[#FF6B35]">TIFY</span>
         </div>
 
-        {/* Navigation Links */}
         <ul className="flex items-center gap-12">
           <li>
             <Link

@@ -32,11 +32,9 @@ export default function YtNote() {
   const handleGetNotes = async () => {
     if (url.trim()) {
       setIsLoading(true);
-      // Add your API call logic here
       const ytId = extractYouTubeVideoId(url);
       await getYtNotes(ytId);
 
-      // Simulate API call
       setTimeout(() => {
         setIsLoading(false);
       }, 2000);
@@ -55,17 +53,14 @@ export default function YtNote() {
         <Notes note={notes} />
       ) : (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-20 p-20">
-          {/* Grid pattern overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
-          {/* Animated gradient orbs */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-20 -left-40 w-96 h-96 bg-gradient-to-r from-[#FF6B35] to-orange-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
             <div className="absolute -bottom-20 -right-40 w-96 h-96 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float animation-delay-2000"></div>
             <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-[#FF6B35] to-orange-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float animation-delay-4000"></div>
           </div>
 
-          {/* Floating particles */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {[...Array(15)].map((_, i) => (
               <div
@@ -81,9 +76,7 @@ export default function YtNote() {
             ))}
           </div>
 
-          {/* Main Container */}
           <div className="relative z-10 top-5 w-full max-w-4xl mx-4 animate-fade-in-up">
-            {/* Header */}
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-3 mb-6">
                 <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B35] to-red-500 rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/50 animate-bounce-subtle">
@@ -101,12 +94,10 @@ export default function YtNote() {
               </p>
             </div>
 
-            {/* Main Card */}
             <div className="relative bg-white/[0.05] backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-orange-500/20 to-transparent rounded-bl-full blur-2xl"></div>
 
               <div className="relative">
-                {/* Input Section */}
                 <div className="mb-8">
                   <label className="block text-lg font-semibold text-white mb-4">
                     YouTube URL
@@ -141,7 +132,6 @@ export default function YtNote() {
                   </p>
                 </div>
 
-                {/* Get Notes Button */}
                 <button
                   onClick={handleGetNotes}
                   disabled={!url.trim() || isLoading}
@@ -196,7 +186,6 @@ export default function YtNote() {
               </div>
             </div>
 
-            {/* Features Grid */}
             <div className="grid md:grid-cols-3 gap-6 mt-12">
               <div className="bg-white/[0.03] backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-orange-500/30 transition-all duration-300">
                 <div className="w-12 h-12 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-xl flex items-center justify-center mb-4">
@@ -271,7 +260,6 @@ export default function YtNote() {
               </div>
             </div>
 
-            {/* How it works */}
             <div className="mt-12 text-center">
               <h3 className="text-white font-bold text-2xl mb-6">
                 How It Works

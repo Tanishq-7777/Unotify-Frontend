@@ -7,18 +7,14 @@ const Jobs = () => {
   const setJobs = useProfile((store) => store.setJobs);
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-20">
-      {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
-      {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 -left-40 w-96 h-96 bg-gradient-to-r from-[#00d4ff] to-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
         <div className="absolute bottom-20 -right-40 w-96 h-96 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float animation-delay-2000"></div>
       </div>
 
-      {/* Main Container */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4">
-        {/* Back Button */}
         <Link to="/jobsearch">
           <button
             onClick={() => {
@@ -43,7 +39,6 @@ const Jobs = () => {
           </button>
         </Link>
 
-        {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-16 h-16 bg-gradient-to-br from-[#00d4ff] to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg shadow-cyan-500/50">
@@ -61,7 +56,6 @@ const Jobs = () => {
           </p>
         </div>
 
-        {/* Jobs List */}
         <div className="space-y-6">
           {jobs && jobs.length > 0 ? (
             jobs.map((job, index) => (
@@ -72,9 +66,7 @@ const Jobs = () => {
                 <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-bl-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <div className="relative">
-                  {/* Header with Logo and Title */}
                   <div className="flex items-start gap-4 mb-6">
-                    {/* Company Logo */}
                     <div className="flex-shrink-0">
                       {job.employer_logo ? (
                         <img
@@ -89,7 +81,6 @@ const Jobs = () => {
                       )}
                     </div>
 
-                    {/* Job Title and Company */}
                     <div className="flex-1">
                       <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
                         {job.job_title}
@@ -104,7 +95,6 @@ const Jobs = () => {
                       )}
                     </div>
 
-                    {/* Apply Button */}
                     <div className="flex-shrink-0">
                       <a
                         href={job.job_apply_link}
@@ -130,7 +120,6 @@ const Jobs = () => {
                     </div>
                   </div>
 
-                  {/* Job Details Tags */}
                   <div className="flex flex-wrap gap-3 mb-6">
                     {job.job_employment_type && (
                       <span className="px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-lg text-cyan-400 text-sm font-medium">
@@ -168,7 +157,6 @@ const Jobs = () => {
                     )}
                   </div>
 
-                  {/* Job Description */}
                   {job.job_description && (
                     <div className="mb-6">
                       <h4 className="text-white font-semibold text-lg mb-3">
@@ -180,7 +168,6 @@ const Jobs = () => {
                     </div>
                   )}
 
-                  {/* Footer with Website Link */}
                   {job.employer_website && (
                     <div className="pt-4 border-t border-white/10">
                       <a

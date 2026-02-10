@@ -30,7 +30,6 @@ const Debounced = () => {
     setJobs(data.data.data);
   };
 
-  // 🔍 API call function (shared)
   const fetchJobs = async (value) => {
     if (!value.trim()) {
       setInputData([]);
@@ -52,7 +51,6 @@ const Debounced = () => {
     }
   };
 
-  // ⏳ Debounced typing search
   const handleSearch = useCallback(
     (e) => {
       const value = e.target.value;
@@ -69,7 +67,6 @@ const Debounced = () => {
     [setInputData],
   );
 
-  // 🔘 Button / Enter key search
   const handleButtonSearch = () => {
     if (timerRef.current) clearTimeout(timerRef.current);
     fetchJobs(input);
@@ -77,17 +74,14 @@ const Debounced = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-10">
-      {/* Background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
-      {/* Floating orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 -left-40 w-96 h-96 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-3xl opacity-20 animate-float"></div>
         <div className="absolute -bottom-20 -right-40 w-96 h-96 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-3xl opacity-20 animate-float animation-delay-2000"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-2xl mx-4">
-        {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg shadow-cyan-500/50">
@@ -103,14 +97,12 @@ const Debounced = () => {
           <p className="text-gray-400 text-lg">Find jobs instantly</p>
         </div>
 
-        {/* Search Card */}
         <div className="bg-white/[0.05] backdrop-blur-xl rounded-3xl p-6 border border-white/10 shadow-2xl mb-6">
           <label className="block text-lg font-semibold text-white mb-4">
             Search Job Title
           </label>
 
           <div className="flex gap-3">
-            {/* Input */}
             <div className="relative flex-1">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <svg
@@ -138,7 +130,6 @@ const Debounced = () => {
               />
             </div>
 
-            {/* Button */}
             <Link to="/jobsearch/jobs">
               <button
                 onClick={handleJobSearch}
@@ -150,7 +141,6 @@ const Debounced = () => {
           </div>
         </div>
 
-        {/* Results */}
         <div className="space-y-3">
           {loading ? (
             <p className="text-center text-gray-400 py-6 ">Searching jobs...</p>
