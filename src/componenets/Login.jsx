@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import useProfile from "../store/User";
+import { BASE_URI, BASE_URL } from "../constants";
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
@@ -23,7 +24,7 @@ export default function Login() {
   const loginUser = async (email, password) => {
     try {
       const data = await axios.post(
-        "http://localhost:9999/login",
+        BASE_URL + "/login",
         {
           email,
           password,
@@ -40,7 +41,7 @@ export default function Login() {
   const signUpUser = async (name, email, password) => {
     try {
       const data = await axios.post(
-        "http://localhost:9999/signup",
+        BASE_URL + "/signup",
         {
           name,
           email,

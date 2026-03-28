@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import useProfile from "../store/User";
 import Notes from "./Notes";
+import { BASE_URI, BASE_URL } from "../constants";
 export default function YtNote() {
   const [url, setUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +20,7 @@ export default function YtNote() {
   }
   const getYtNotes = async (ytId) => {
     const response = await axios.post(
-      "http://localhost:9999/getNotes",
+      BASE_URL + "/getNotes",
       {
         ytId,
       },

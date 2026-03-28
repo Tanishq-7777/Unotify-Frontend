@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useRef, useEffect } from "react";
 import useProfile from "../store/User";
+import { BASE_URI, BASE_URL } from "../constants";
 
 export default function Otp() {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
@@ -19,7 +20,7 @@ export default function Otp() {
     }
   }, [error]);
   const getProfile = async () => {
-    const data = await axios.get("http://localhost:9999/profile", {
+    const data = await axios.get(BASE_URL + "/profile", {
       withCredentials: true,
     });
     setData(data.data.data);
@@ -27,7 +28,7 @@ export default function Otp() {
   const verifyOtp = async (otp) => {
     try {
       const data = await axios.post(
-        "http://localhost:9999/verifyEmail",
+        BASE_URL + "/verifyEmail",
         {
           verificationCode: otp,
         },

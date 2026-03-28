@@ -1,51 +1,53 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Landing from "./componenets/Landing";
 import Body from "./componenets/Body";
-import Login from "./componenets/Login";
-import Otp from "./componenets/Otp";
 import axios from "axios";
 import useProfile from "./store/User";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import YtNote from "./componenets/YtNote";
 import Debounced from "./componenets/Debounced";
 import Jobs from "./componenets/Jobs";
+import Premium from "./componenets/Premium";
+import { BASE_URL } from "./constants";
 
 const App = () => {
-  const userData = useProfile((state) => state.userData);
   const setData = useProfile((state) => state.setData);
-  const getProfile = async () => {
-    const data = await axios.get("http://localhost:9999/profile", {
-      withCredentials: true,
-    });
-    setData(data.data.data);
-  };
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
+    const getProfile = async () => {
+      try {
+        const res = await axios.get(BASE_URL + "/profile", {
+          withCredentials: true,
+        });
+        setData(res.data.data);
+      } catch {
+        setData(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     getProfile();
   }, []);
+
+  if (loading) return;
+
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Body />,
       children: [
-        {
-          path: "/",
-          element: <Landing />,
-        },
-        {
-          path: "/ytnote",
-          element: <YtNote />,
-        },
-        {
-          path: "/jobsearch",
-          element: <Debounced />,
-        },
-        {
-          path: "/jobsearch/jobs",
-          element: <Jobs />,
-        },
+        { path: "/", element: <Landing /> },
+        { path: "/ytnote", element: <YtNote /> },
+        { path: "/jobsearch", element: <Debounced /> },
+        { path: "/jobsearch/jobs", element: <Jobs /> },
+        { path: "/premium", element: <Premium /> },
       ],
     },
   ]);
+
   return <RouterProvider router={router} />;
 };
+
 export default App;

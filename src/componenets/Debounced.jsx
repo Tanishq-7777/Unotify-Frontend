@@ -2,6 +2,7 @@ import React, { useState, useRef, useCallback } from "react";
 import useProfile from "../store/User";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { BASE_URI, BASE_URL } from "../constants";
 
 const Debounced = () => {
   const [input, setInput] = useState("");
@@ -15,16 +16,13 @@ const Debounced = () => {
   const timerRef = useRef(null);
 
   const handleJobClick = async (jobTitle) => {
-    const data = await axios.get(
-      `http://localhost:9999/jobTitles/${jobTitle}`,
-      {
-        withCredentials: true,
-      },
-    );
+    const data = await axios.get(`${BASE_URL}/jobTitles/${jobTitle}`, {
+      withCredentials: true,
+    });
     setJobs(data.data.data);
   };
   const handleJobSearch = async () => {
-    const data = await axios.get(`http://localhost:9999/jobTitles/${input}`, {
+    const data = await axios.get(`${BASE_URL}/jobTitles/${input}`, {
       withCredentials: true,
     });
     setJobs(data.data.data);
@@ -39,10 +37,9 @@ const Debounced = () => {
     try {
       setLoading(true);
       console.log(value);
-      const { data } = await axios.get(
-        `http://localhost:9999/jobTitles?title=${value}`,
-        { withCredentials: true },
-      );
+      const { data } = await axios.get(`${BASE_URL}/jobTitles?title=${value}`, {
+        withCredentials: true,
+      });
       setInputData(data);
     } catch (err) {
       console.error(err);
