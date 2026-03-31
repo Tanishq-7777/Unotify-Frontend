@@ -31,7 +31,7 @@ const App = () => {
     getProfile();
   }, []);
 
-  if (loading) return;
+  if (loading) return <h1>Render COld Start (Satrting Backend Server.....)</h1>;
 
   const router = createBrowserRouter([
     {
