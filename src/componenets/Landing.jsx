@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Landing() {
   const [currentFeature, setCurrentFeature] = useState(0);
@@ -128,7 +129,11 @@ export default function Landing() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mt-24 max-w-5xl mx-auto animate-fade-in-up animation-delay-600">
-          <a href="#ytnote" className="group relative overflow-hidden block">
+          <Link
+            to="/ytnote"
+            href="#ytnote"
+            className="group relative overflow-hidden block"
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl"></div>
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-transparent to-transparent blur-xl animate-shimmer-slow"></div>
@@ -155,11 +160,11 @@ export default function Landing() {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
 
           {/* JobSearcher Card */}
-          <a
-            href="#jobsearcher"
+          <Link
+            to="/jobsearch"
             className="group relative overflow-hidden block"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl"></div>
@@ -188,23 +193,25 @@ export default function Landing() {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
 
         {/* Enhanced CTA section */}
         <div className="mt-20 animate-fade-in-up animation-delay-800">
-          <button className="group relative px-12 py-5 bg-gradient-to-r from-[#FF6B35] via-orange-500 to-[#00d4ff] text-white font-bold text-xl rounded-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/50 hover:scale-105 animate-gradient-x">
-            <span className="relative z-10 flex items-center gap-3">
-              Start Building Now
-              <span className="transform group-hover:translate-x-1 group-hover:rotate-12 transition-transform duration-300">
-                ✨
+          <Link to="/jobsearch">
+            <button className="group relative px-12 py-5 bg-gradient-to-r from-[#FF6B35] via-orange-500 to-[#00d4ff] text-white font-bold text-xl rounded-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/50 hover:scale-105 animate-gradient-x">
+              <span className="relative z-10 flex items-center gap-3">
+                Start Building Now
+                <span className="transform group-hover:translate-x-1 group-hover:rotate-12 transition-transform duration-300">
+                  ✨
+                </span>
               </span>
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#00d4ff] via-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
-              <div className="absolute inset-0 bg-white animate-shimmer-fast"></div>
-            </div>
-          </button>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00d4ff] via-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+                <div className="absolute inset-0 bg-white animate-shimmer-fast"></div>
+              </div>
+            </button>
+          </Link>
           <p className="text-gray-500 text-sm mt-4 hover:text-gray-400 transition-colors">
             No credit card required • Free forever
           </p>
